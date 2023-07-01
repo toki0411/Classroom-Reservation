@@ -2,7 +2,7 @@ name: Classroom-Reservation CI
 
 on:
   push:
-    branches: [ "dev", "main" ]
+    branches: [ "dev", "main", "master" ]
   pull_request:
     types: [ opened, synchronize, reopened ]
 
