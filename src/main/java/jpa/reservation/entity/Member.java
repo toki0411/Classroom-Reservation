@@ -17,7 +17,7 @@ public abstract class Member {
     @Column(name = "member_id")
     private Long id;
 
-    private String Email;
+    private String email;
     private String password;
     private String name;
     private String major;

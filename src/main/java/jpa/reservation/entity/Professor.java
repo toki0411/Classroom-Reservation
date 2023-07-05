@@ -10,8 +10,9 @@ import javax.persistence.Id;
 
 @Entity
 @DiscriminatorValue("P")
-@Getter @Setter
-public class Professor extends Member{
+@Getter
+@Setter
+public class Professor extends Member {
 
     private Long professorNumber;
 }

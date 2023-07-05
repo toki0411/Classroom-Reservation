@@ -25,7 +25,7 @@ public class Reservation {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    private Integer numberOfMember;  //인원수
+    private int numberOfMember;  //인원수
     //private Date reservationDate;
     private LocalDateTime startTime;  //예약 시작 시간
     private LocalDateTime endTime;  //예약 끝 시간

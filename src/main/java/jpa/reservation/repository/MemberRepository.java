@@ -14,9 +14,8 @@ public class MemberRepository {
 
     private final EntityManager em;
 
-    public Long save(Member member) {
+    public void save(Member member) {
         em.persist(member);
-        return member.getId();
     }
 
     public Member findOne(Long id) {
@@ -29,11 +28,11 @@ public class MemberRepository {
 
     public List<Member> findByName(String name) {
         return em.createQuery("select m from Member m where m.name = :name", Member.class)
-                .setParameter("name",name)
+                .setParameter("name", name)
                 .getResultList();
     }
 
-    public void delete(Member member){
+    public void delete(Member member) {
         em.remove(member);
     }
 }

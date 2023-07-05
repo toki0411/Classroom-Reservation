@@ -1,5 +1,5 @@
 package jpa.reservation.entity;
 
 public enum ReservationStatus {
-    RESERVATED, CANCEL
+    RESERVATED, CANCELED
 }
