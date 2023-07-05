@@ -14,7 +14,7 @@ public class Classroom {
     private Long id;
 
     private String address;
-    private Long limitedMember;
+    private int limitedMember;
   //  private String image;
 
     @OneToOne(mappedBy="classroom", fetch = FetchType.LAZY)
