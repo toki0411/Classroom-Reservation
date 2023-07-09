@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader" />
+
+    <div>
+        <h1>Students</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>학번</th>
+                    <th>이름</th>
+                    <th>전공</th>
+                    <th>이메일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${students.data}">
+                    <td th:text="${student.id}"></td>
+                    <td th:text="${student.studentNumber}"></td>
+                    <td th:text="${student.name}"></td>
+                    <td th:text="${student.major}"></td>
+                    <td th:text="${student.email}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h1>Professors</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>교번</th>
+                    <th>이름</th>
+                    <th>전공</th>
+                    <th>이메일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="professor : ${professors.data}">
+                    <td th:text="${professor.id}"></td>
+                    <td th:text="${professor.professorNumber}"></td>
+                    <td th:text="${professor.name}"></td>
+                    <td th:text="${professor.major}"></td>
+                    <td th:text="${professor.email}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+</html>

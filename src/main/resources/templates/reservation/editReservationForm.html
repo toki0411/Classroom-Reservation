@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+  <html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header" />
+  <body>
+  <div class="container">
+      <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+<form role="form" th:href="@{/reservation/{reservationId}/edit(reservationId=${reservation.data.id})}" method="post" th:method="put" th:csrf>
+
+          <div class="form-group">
+<label for="member">주문회원</label>
+<select name="memberId" id="memberId" class="form-control">
+<option value="">회원선택</option> <option th:each="member : ${members.data}"
+                          th:value="${member.id}"
+                          th:text="${member.name}"
+                          th:selected="${member.id eq reservation.data.memberId}"
+                        />
+              </select>
+
+          </div>
+<div class="form-group">
+<label for="classroom">강의실</label>
+<select name="classroomId" id="classroomId" class="form-control"> <option value="">강의실 선택</option>
+                  <option th:each="classroom : ${classrooms.data}"
+                          th:value="${classroom.id}"
+                          th:text="${classroom.address}"
+                          th:selected="${classroom.id eq reservation.data.classroomId}">
+                          />
+                          </select>
+                          </div>
+
+
+<div class="form-group">
+                          <label for="startTime">날짜와 시작 시간을 선택하세요:
+                            <input type="datetime-local"
+                                   id="startTime"
+                                   name="startTime"
+                                   max="2023-12-31T21:00"
+                                   min="2023-06-30T12:30"
+                                   >
+
+                          </label>
+                          </div>
+
+                          <div class="form-group">
+                                                    <label for="endTime">날짜와 마칠 시간을 선택하세요:
+                                                      <input type="datetime-local"
+                                                             id="endTime"
+                                                             name="endTime"
+                                                             max="2023-12-31T21:00"
+                                                             min="2023-06-30T12:30"
+
+                                                             >
+
+                                                    </label>
+                                                    </div>
+
+
+       <div class="form-group">
+                 <label for="numberOfMember">인원</label>
+                        <input type="number" name="numberOfMember" class="form-control" id="numberOfMember" value="${reservation.data.numberOfMember}" placeholder="인원을 입력하세요"
+                        th:value="${reservation.data.numberOfMember}" >
+                                                                              </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                                <br/>
+
+                                <script th:inline="javascript">
+                                  var startTimeValue = /*[[${reservation.data.startTime}]]*/ null;
+                                  var endTimeValue = /*[[${reservation.data.endTime}]]*/ null;
+                                  if (startTimeValue) {
+                                    var parsedStartTime = new Date(startTimeValue);
+                                      if (!isNaN(parsedStartTime)) {
+                                        document.getElementById("startTime").value = parsedStartTime.toISOString().slice(0, -5);
+                                      }
+
+                                  }
+                                  if (endTimeValue) {
+                                    var parsedEndTime = new Date(endTimeValue);
+                                      if (!isNaN(parsedEndTime)) {
+                                        document.getElementById("endTime").value = parsedEndTime.toISOString().slice(0, -5);
+                                      }
+                                  }
+                                </script>
+
+                                <div th:replace="fragments/footer :: footer" />
+                            </div> <!-- /container -->
+                            </body>
+                          </html>
+
+
