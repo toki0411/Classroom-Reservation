@@ -16,6 +16,10 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
 
   logging.level:
     org.hibernate.SQL: debug
