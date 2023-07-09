@@ -26,7 +26,7 @@ public class Reservation {
     private Member member;
 
     private int numberOfMember;  //인원수
-    //private Date reservationDate;
+
     private LocalDateTime startTime;  //예약 시작 시간
     private LocalDateTime endTime;  //예약 끝 시간
 
@@ -48,7 +48,7 @@ public class Reservation {
     }
 
     //==생성 메서드==//
-    public static Reservation createReservation(Member member, Classroom classroom, LocalDateTime startTime, LocalDateTime endTime, Integer numberOfMember){
+    public static Reservation createReservation(Member member, Classroom classroom, LocalDateTime startTime, LocalDateTime endTime, int numberOfMember){
         Reservation reservation = new Reservation();
         reservation.setMember(member);
         reservation.setClassroom(classroom);

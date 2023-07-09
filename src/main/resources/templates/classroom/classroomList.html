@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+  <html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header" />
+  <body>
+
+  <div class="container">
+      <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
+      <div>
+          <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>강의실</th>
+            <th>제한인원</th>
+            <th></th>
+        </tr>
+           </thead>
+           <tbody>
+                  <tr th:each="classroom : ${classrooms.data}">
+                      <td th:text="${classroom.id}"></td>
+                      <td th:text="${classroom.address}"></td>
+                      <td th:text="${classroom.limitedMember}"></td>
+<!--                       <td><a href="#" th:href="@{/classroom/{id}/edit (id=${classroom.id})}" class="btn btn-primary" role="button">수정</a></td> -->
+              </tr>
+                            </tbody>
+                        </table>
+              </div>
+         <div th:replace="fragments/footer :: footer"/>
+     </div> <!-- /container -->
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+  <html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: header">
+      <title>Hello</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+  <div class="container">
+      <div th:replace="fragments/bodyHeader :: bodyHeader" />
+<div class="jumbotron"> <h1>대학교 강의실 예약 페이지</h1>
+      <a class="btn btn-lg btn-secondary" href="/login">로그인</a>
+<p class="lead">회원 기능</p> <p>
+<a class="btn btn-lg btn-secondary" href="/student/new">학생 회원 가입</a>
+<a class="btn btn-lg btn-secondary" href="/professor/new">교수 회원 가입</a>
+<a class="btn btn-lg btn-secondary" href="/members/list">회원 목록</a> </p>
+<p class="lead">강의실 기능</p> <p>
+<a class="btn btn-lg btn-dark" href="/classroom/new">강의실 등록</a>
+<a class="btn btn-lg btn-dark" href="/classroom/list">강의실 목록</a> </p>
+<p class="lead">예약 기능</p> <p>
+<a class="btn btn-lg btn-info" href="/reservation/new">예약하기</a>
+<a class="btn btn-lg btn-info" href="/reservation/list">예약 내역</a> </p>
+</div>
+      <div th:replace="fragments/footer :: footer" />
+  </div> <!-- /container -->
+     </body>
+    </html>
