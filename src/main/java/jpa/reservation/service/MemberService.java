@@ -10,7 +10,6 @@ import jpa.reservation.web.StudentForm;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,7 +50,6 @@ public class MemberService {
         memberRepository.save(professor);
     }
 
-
     //중복 조회
     private void validateDuplicateMember(Member member) {
         Member findMember = memberRepository.findByEmail(member.getEmail());
@@ -78,9 +76,6 @@ public class MemberService {
         return new Result(collect);
     }
 
-//    public Member findOne(Long memberId) {
-//        return memberRepository.findOne(memberId);
-//    }
     //전체 회원의 이름과 id만 조회
     public Result findMembers() {
         List<Member> findMembers = memberRepository.findAll();
@@ -89,6 +84,7 @@ public class MemberService {
                 .collect(Collectors.toList());
         return new Result(collect);
     }
+
     //로그인
     public boolean login(LoginForm form) {
         Member findMember = memberRepository.findByEmail(form.getEmail());

@@ -58,10 +58,4 @@ public class ClassroomService {
         private String address;
         private int limitedMember;
     }
-
-//    public Classroom findOne(Long classroomId){
-//        Classroom classroom = classroomRepository.findOne(classroomId);
-//        return classroom;
-//    }
-
 }
